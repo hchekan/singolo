@@ -2,90 +2,311 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="singolo1.css">
-    <title>Singolo</title>
+		<link rel="stylesheet" href="index.css">
+		<link rel="icon" href="assets/images/faviconka.ico" type="image/x-icon"/>
+		<title>Singolo</title>
+		
 	</head>
-	<body>
-
+	<body id="body">
+		
 		<header class="header">
 			<div class="container header__container">
+				
+				<nav class="burger-menu">
+					<div id="contain">
+						<div class="bar1"></div>
+						<div class="bar2"></div>
+						<div class="bar3"></div>
+					</div>
+					<ul id="nav">
+						<li><a href="#slider" class="burger__nav__link">HOME</a></li>
+						<li><a href="#services" class="burger__nav__link">SERVICES</a></li>
+						<li><a href="#portfolio" class="burger__nav__link">PORTFOLIO</a></li>
+						<li><a href="#about" class="burger__nav__link">ABOUT</a></li>
+						<li><a href="#get-a-quote" class="burger__nav__link">CONTACT</a></li>
+					</ul>
+				</nav>
+
 				<div class="logo">
 					<h1 class="logo__text">SINGOLO<span class="logo__symbol">*</span></h1>
 				</div>
-				<nav>
+				<nav class="nav__container">
 					<ul class="nav">
-						<li class="nav__item"><a href="#" class="nav__link">HOME</a></li>
-						<li class="nav__item"><a href="#" class="nav__link">SERVICES</a></li>
-						<li class="nav__item"><a href="#" class="nav__link">PORTFOLIO</a></li>
-						<li class="nav__item"><a href="#" class="nav__link">ABOUT</a></li>
-						<li class="nav__item"><a href="#" class="nav__link">CONTACT</a></li>
+						<li class="nav__item"><a href="#slider" class="nav__link">HOME</a></li>
+						<li class="nav__item"><a href="#services" class="nav__link">SERVICES</a></li>
+						<li class="nav__item"><a href="#portfolio" class="nav__link">PORTFOLIO</a></li>
+						<li class="nav__item"><a href="#about" class="nav__link">ABOUT</a></li>
+						<li class="nav__item"><a href="#get-a-quote" class="nav__link">CONTACT</a></li>
 					</ul>
 				</nav>
 			</div>
 			<div class="header__line line"></div>
 		</header>
-		
-		<section class="slider">
+
+    <a class="anchor" id="slider"></a>
+		<section class="slider" id="sldr">
 			<div class="container slider__container">
-				<button class="slider__btn slider__btn_left"></button>
-				<img src="assets/images/iphone-vertical.png" class="slider__phone-vertical">
-				<img src="assets/images/iphone-horizontal.png" class="slider__phone-horizontal">
-				<button class="slider__btn slider__btn_right"></button>
+
+				<div class="slider__wrapper" id="slider__wrapper">
+					<div class="slider__item" style="background: rgb(240, 108, 100)">
+
+						<div class="slider__phone-vertical phone_left">
+							<img src="assets/images/iphone-vertical.png" class="slider__phone-vertical__image">
+						</div>
+						<div class="ver-phone__turn-off" id="ver-phone__turn-off">
+							<img src="assets/images/iphone-vertical_turn_off.png" class="slider__phone-vertical__image" id="slider__phone">
+						</div>
+					  <div class="slider__phone-horizontal phone_right">
+							<img src="assets/images/iphone-horizontal.png" class="slider__phone-horizontal__image">
+						</div>
+						<div class="hor-phone__turn-off" id="hor-phone__turn-off">
+							<img src="assets/images/iphone-horizontal_turn_off.png" class="slider__phone-horizontal__image" id="slider__phone">
+						</div>
+
+					</div>
+					<div class="slider__item" style="background: rgb(116, 169, 238)">
+						<img src="assets/images/dice_man.png" class="slider__dice">
+					</div>
+			  </div>
+
+				<button class="slider__btn slider__btn_left" ></button>
+				<button class="slider__btn slider__btn_right" ></button>
+				
 			</div>
-			<div class="slider__line line"></div>
+			<div class="slider__line line" id="slider__line"></div>
 		</section>
 
+		<a class="anchor" id="services"></a>
 		<section class="services">
 			<div class="container services__container">
 				<h2>Our Services</h2>
 				<p class="services__about">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-				<div class="service__container">
-					<div class="service__item">
+				<ul class="service__container">
+					<li class="service__item">
 						<img src="assets/images/pen.png" class="services__image">
 						<div>
 							<h3>Custom Design</h3>
 							<p>Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
 						</div>
-					</div>
-					<div class="service__item">
+					</li>
+					<li class="service__item">
 						<img src="assets/images/bulb.png" class="services__image">
 						<div>
 							<h3>Inovative Ideas</h3>
 							<p>Quisque luctus, quam eget molestie com­modo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
 						</div>
-				  </div>
-					<div class="service__item">
+				  </li>
+					<li class="service__item">
 						<img src="assets/images/heart.png" class="services__image">
 						<div>
 							<h3>Love Is The Answer</h3>
 							<p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
 						</div>
-					</div>
-					<div class="service__item">
+					</li>
+					<li class="service__item">
 						<img src="assets/images/phone.png" class="services__image">
 						<div>
 							<h3>Responsive Layout</h3>
 							<p>Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas blandit nunc ligula. Prae­sent elit leo.</p>
 						</div>
-					</div>
-					<div class="service__item">
+					</li>
+					<li class="service__item">
 						<img src="assets/images/bubble.png" class="services__image">
 						<div>
 							<h3>24 / 7 Support</h3>
 							<p>Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi. Nulla a sem erat. Pellen­tesque egestas venenatis lorem .</p>
 						</div>
-					</div>
-					<div class="service__item">
+					</li>
+					<li class="service__item">
 						<img src="assets/images/star.png" class="services__image">
 						<div>
 							<h3>Feel Like A Star</h3>
 							<p>Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.</p>
 						</div>
-					</div>
-				</div>
+					</li>
+				</ul>
 			</div>
 			<div class="services__line line"></div>
 		</section>
 
+		<a class="anchor" id="portfolio"></a>
+		<section class="portfolio">
+			<div class="container portfolio__container">
+			  <h2>Portfolio</h2>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>	
+				<ul class="portfolio__tags__container">
+					<li><button class="tag__item effect">All</button></li>
+					<li><button class="tag__item effect">Web Design</button></li>
+					<li><button class="tag__item effect">Graphic Design</button></li>
+				  <li><button class="tag__item effect">Artwork</button></li>
+				</ul>
+				<ul class="portfolio__items__container">
+					<li class="portfolio__item"><img src="assets/images/ship.png" class="portfolio__image"></li>
+					<li class="portfolio__item"><img src="assets/images/girl.png" class="portfolio__image"></li>
+					<li class="portfolio__item"><img src="assets/images/city.png" class="portfolio__image"></li>
+					<li class="portfolio__item"><img src="assets/images/robot.png" class="portfolio__image"></li>
+
+					<li class="portfolio__item"><img src="assets/images/animals.png" class="portfolio__image"></li>
+					<li class="portfolio__item"><img src="assets/images/sdk.png" class="portfolio__image"></li>
+					<li class="portfolio__item"><img src="assets/images/toys.png" class="portfolio__image"></li>
+					<li class="portfolio__item"><img src="assets/images/birds.png" class="portfolio__image"></li>
+
+					<li class="portfolio__item"><img src="assets/images/monster1.png" class="portfolio__image"></li>
+					<li class="portfolio__item"><img src="assets/images/text.png" class="portfolio__image"></li>
+					<li class="portfolio__item"><img src="assets/images/monster2.png" class="portfolio__image"></li>
+					<li class="portfolio__item"><img src="assets/images/glass.png" class="portfolio__image"></li>
+				</ul>
+			</div>
+			<div class="portfolio__line line"></div>
+		</section>
+		
+		<a class="anchor" id="about"></a>
+		<section class="about">
+			<div class="container about__container">
+				<h2>About Us</h2>
+				<p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>	
+				<div class="about_items__container">
+					<div class="about_item">
+						<img src="assets/images/woman1.png" class="about_item__image">
+						<h3>Adam Jensen</h3>
+						<p>Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
+						<div class="about_social__container">
+							<ul>
+								<li>
+									<a href="#"><img src="assets/images/facebook.png" class="about_social effect"></a>
+								</li>
+								<li>
+									<a href="#"><img src="assets/images/google+.png" class="about_social effect"></a>
+								</li>
+								<li>
+									<a href="#"><img src="assets/images/twitter.png" class="about_social effect"></a>
+								</li>
+								<li>
+									<a href="#"><img src="assets/images/linkedin.png" class="about_social effect"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="about_item">
+						<img src="assets/images/man.png" class="about_item__image">
+						<h3>Desmond Miles</h3>
+						<p>Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
+						<div class="about_social__container">
+							<ul>
+								<li>
+									<a href="#"><img src="assets/images/facebook.png" class="about_social effect"></a>
+								</li>
+								<li>
+									<a href="#"><img src="assets/images/google+.png" class="about_social effect"></a>
+								</li>
+								<li>
+									<a href="#"><img src="assets/images/twitter.png" class="about_social effect"></a>
+								</li>
+								<li>
+									<a href="#"><img src="assets/images/linkedin.png" class="about_social effect"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="about_item">
+						<img src="assets/images/woman2.png" class="about_item__image">
+						<h3>Scolara Visari</h3>
+						<p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
+						<div class="about_social__container">
+							<ul>
+								<li>
+									<a href="#"><img src="assets/images/facebook.png" class="about_social effect"></a>
+								</li>
+								<li>
+									<a href="#"><img src="assets/images/google+.png" class="about_social effect"></a>
+								</li>
+								<li>
+									<a href="#"><img src="assets/images/twitter.png" class="about_social effect"></a>
+								</li>
+								<li>
+									<a href="#"><img src="assets/images/linkedin.png" class="about_social effect"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="about__line line"></div>
+		</section>
+
+		<a class="anchor" id="get-a-quote"></a>
+		<section class="get-a-quote">
+			<div class="get-a-quote__container container">
+				<h2>Get a Quote</h2>
+				<p>
+					Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
+				</p>
+				<div class="get-a-quote__form-container">
+
+					<form class="get-a-quote__form" id="form">
+						<input type="text" class="form__element" placeholder="Name (Required)" required>
+						<input type="email" class="form__element" placeholder="Email (Required)" required>
+						<input type="text" class="form__element" placeholder="Subject">
+						<textarea class="form__element" placeholder="Describe your project in detail..."></textarea>
+						<button data-trigger class="submit" id="submit">SEND</button>
+					</form>
+					
+					<div id="myModal" class="modal">
+						<div class="modal__content">
+							<div class="modal__header">
+								<h3 class="modal__header__text">The letter was sent</h3>
+							</div>
+							<div class="modal__body">
+								<p class="modal__body__text" id="subject"></p>
+								<p class="modal__body__text scroll__descrp" id="description"></p>
+							</div>
+							<div class="modal__close"><button class="modal__close__btn">Ок</button></div>
+						</div>
+					</div>
+
+					<div class="get-a-quote__contact-info">
+						<h3>Contact Information</h3>
+						<p>
+							Quisque hendrerit purus dapibus, ornare nibh vitae, viver­ra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis.
+						</p>
+						<div class="get-a-quote__contact-details">
+							<div class="get-a-quote__contact-details__item">
+								<div class="get-a-quote__contact-details__item__img">
+								  <img src="assets/images/location.png">
+							  </div>
+								<a href="#">Elm St. 14/05 Lost City</a>
+							</div>	
+							<div class="get-a-quote__contact-details__item">
+								<div class="get-a-quote__contact-details__item__img">
+								  <img src="assets/images/phone_quote.png">
+							  </div>
+								<a href="tel:+035283318635">03528 331 86 35</a> 
+							</div>
+							<div class="get-a-quote__contact-details__item">
+								<div class="get-a-quote__contact-details__item__img">
+								  <img src="assets/images/mail.png">
+							  </div>
+								<a href="mailto: info@singolo.com">info@singolo.com</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="get-a-quote__line line"></div>
+		</section>
+
+		<footer class="footer">
+			<div class="footer__container container">
+				<div class="footer__copyright">© Copyright 2013</div>
+				<ul class="footer__socials">
+					<li><a class="effect"><img src="assets/images/facebook.png"></a></li>
+				  <li><a class="effect"><img src="assets/images/google+.png"></a></li>
+			    <li><a class="effect"><img src="assets/images/twitter.png"></a></li>
+	        <li><a class="effect"><img src="assets/images/linkedin.png"></a></li>
+				</ul>
+			</div>
+		</footer>
+		<script src="script.js"></script>
 	</body>
 </html>
