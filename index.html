@@ -3,17 +3,34 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="index.css">
-
+		<link rel="icon" href="assets/images/faviconka.ico" type="image/x-icon"/>
 		<title>Singolo</title>
+		
 	</head>
 	<body id="body">
 		
 		<header class="header">
 			<div class="container header__container">
+				
+				<nav class="burger-menu">
+					<div id="contain">
+						<div class="bar1"></div>
+						<div class="bar2"></div>
+						<div class="bar3"></div>
+					</div>
+					<ul id="nav">
+						<li><a href="#slider" class="burger__nav__link">HOME</a></li>
+						<li><a href="#services" class="burger__nav__link">SERVICES</a></li>
+						<li><a href="#portfolio" class="burger__nav__link">PORTFOLIO</a></li>
+						<li><a href="#about" class="burger__nav__link">ABOUT</a></li>
+						<li><a href="#get-a-quote" class="burger__nav__link">CONTACT</a></li>
+					</ul>
+				</nav>
+
 				<div class="logo">
 					<h1 class="logo__text">SINGOLO<span class="logo__symbol">*</span></h1>
 				</div>
-				<nav>
+				<nav class="nav__container">
 					<ul class="nav">
 						<li class="nav__item"><a href="#slider" class="nav__link">HOME</a></li>
 						<li class="nav__item"><a href="#services" class="nav__link">SERVICES</a></li>
@@ -29,20 +46,31 @@
     <a class="anchor" id="slider"></a>
 		<section class="slider" id="sldr">
 			<div class="container slider__container">
+
 				<div class="slider__wrapper" id="slider__wrapper">
-					<div class="slider__item">
-						<img src="assets/images/iphone-vertical.png" class="slider__phone-vertical">
-						<img src="assets/images/iphone-vertical_turn_off.png" class="slider__phone-vertical ver-phone__turn-off" id="slider__phone">
-						<img src="assets/images/iphone-horizontal.png" class="slider__phone-horizontal">
-						<img src="assets/images/iphone-horizontal_turn_off.png" class="slider__phone-horizontal hor-phone__turn-off" id="slider__phone">
+					<div class="slider__item" style="background: rgb(240, 108, 100)">
+
+						<div class="slider__phone-vertical phone_left">
+							<img src="assets/images/iphone-vertical.png" class="slider__phone-vertical__image">
+						</div>
+						<div class="ver-phone__turn-off" id="ver-phone__turn-off">
+							<img src="assets/images/iphone-vertical_turn_off.png" class="slider__phone-vertical__image" id="slider__phone">
+						</div>
+					  <div class="slider__phone-horizontal phone_right">
+							<img src="assets/images/iphone-horizontal.png" class="slider__phone-horizontal__image">
+						</div>
+						<div class="hor-phone__turn-off" id="hor-phone__turn-off">
+							<img src="assets/images/iphone-horizontal_turn_off.png" class="slider__phone-horizontal__image" id="slider__phone">
+						</div>
+
 					</div>
 					<div class="slider__item" style="background: rgb(116, 169, 238)">
 						<img src="assets/images/dice_man.png" class="slider__dice">
 					</div>
 			  </div>
-				
-				<button class="slider__btn slider__btn_left" onclick="minusSlide()"></button>
-				<button class="slider__btn slider__btn_right" onclick="plusSlide()"></button>
+
+				<button class="slider__btn slider__btn_left" ></button>
+				<button class="slider__btn slider__btn_right" ></button>
 				
 			</div>
 			<div class="slider__line line" id="slider__line"></div>
@@ -53,50 +81,50 @@
 			<div class="container services__container">
 				<h2>Our Services</h2>
 				<p class="services__about">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-				<div class="service__container">
-					<div class="service__item">
+				<ul class="service__container">
+					<li class="service__item">
 						<img src="assets/images/pen.png" class="services__image">
 						<div>
 							<h3>Custom Design</h3>
 							<p>Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
 						</div>
-					</div>
-					<div class="service__item">
+					</li>
+					<li class="service__item">
 						<img src="assets/images/bulb.png" class="services__image">
 						<div>
 							<h3>Inovative Ideas</h3>
 							<p>Quisque luctus, quam eget molestie com­modo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
 						</div>
-				  </div>
-					<div class="service__item">
+				  </li>
+					<li class="service__item">
 						<img src="assets/images/heart.png" class="services__image">
 						<div>
 							<h3>Love Is The Answer</h3>
 							<p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
 						</div>
-					</div>
-					<div class="service__item">
+					</li>
+					<li class="service__item">
 						<img src="assets/images/phone.png" class="services__image">
 						<div>
 							<h3>Responsive Layout</h3>
 							<p>Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas blandit nunc ligula. Prae­sent elit leo.</p>
 						</div>
-					</div>
-					<div class="service__item">
+					</li>
+					<li class="service__item">
 						<img src="assets/images/bubble.png" class="services__image">
 						<div>
 							<h3>24 / 7 Support</h3>
 							<p>Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi. Nulla a sem erat. Pellen­tesque egestas venenatis lorem .</p>
 						</div>
-					</div>
-					<div class="service__item">
+					</li>
+					<li class="service__item">
 						<img src="assets/images/star.png" class="services__image">
 						<div>
 							<h3>Feel Like A Star</h3>
 							<p>Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.</p>
 						</div>
-					</div>
-				</div>
+					</li>
+				</ul>
 			</div>
 			<div class="services__line line"></div>
 		</section>
@@ -220,7 +248,7 @@
 						<input type="email" class="form__element" placeholder="Email (Required)" required>
 						<input type="text" class="form__element" placeholder="Subject">
 						<textarea class="form__element" placeholder="Describe your project in detail..."></textarea>
-						<button data-trigger class="submit" id="submit">submit</button>
+						<button data-trigger class="submit" id="submit">SEND</button>
 					</form>
 					
 					<div id="myModal" class="modal">
@@ -230,7 +258,7 @@
 							</div>
 							<div class="modal__body">
 								<p class="modal__body__text" id="subject"></p>
-								<p class="modal__body__text" id="description"></p>
+								<p class="modal__body__text scroll__descrp" id="description"></p>
 							</div>
 							<div class="modal__close"><button class="modal__close__btn">Ок</button></div>
 						</div>
