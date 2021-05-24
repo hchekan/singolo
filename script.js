@@ -1,50 +1,66 @@
 //burger-menu
-var x = document.getElementById("contain");
-var y = document.querySelectorAll('.burger__nav__link');
-x.addEventListener("click", myFunction);
+const sticks = document.querySelector('#contain');
+sticks.addEventListener('click', function (e) {
+  e.preventDefault();
+  const modal = document.querySelector('.burger__nav');
 
-function myFunction() {
-  var element = document.getElementById("nav");
-  element.classList.toggle("open");
-  x.classList.toggle("change");
-}
-for (let anchor of y) {
-  anchor.addEventListener('click', function (e) {
-		var element = document.getElementById("nav");
-  	element.classList.toggle("open");
-  	x.classList.toggle("change");
-  })
-}
+  modal.classList.toggle('block');
+  const nav_items = document.querySelector('#nav');
+  nav_items.classList.toggle('open');
+  sticks.classList.toggle('change');
 
-const anchors = document.querySelectorAll('a[href*="#"]')
-//smooth transition to clicking on the menu
-for (let anchor of anchors) {
-  anchor.addEventListener('click', function (e) {
-		for (let anch of anchors) {
-		  anch.style.color = 'white';
-		}
-		e.preventDefault()
-		anchor.style.color = 'rgb(240, 108, 100)';
-    const blockID = anchor.getAttribute('href').substr(1)
-    var hiddenElement = document.getElementById(blockID);
-    hiddenElement.scrollIntoView({block: "start", behavior: "smooth"});
-  })
-}
-
-//highlighting a menu item by block
-var scrollTop;
-window.addEventListener('scroll', function() { 
-  scrollTop = window.scrollY;
-  for (let anchor of anchors) {
-		if(scrollTop>=document.getElementById(anchor.getAttribute('href').substr(1)).offsetTop) {
-			for (let anch of anchors) {
-				anch.style.color = 'white';
-			}
-			anchor.style.color='rgb(240, 108, 100)';
-	  }
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.classList.toggle('block');
+      nav_items.classList.toggle('open');
+      sticks.classList.toggle('change');
+    }
   }
 });
 
+const burger_links = document.querySelectorAll('.burger__nav__link');
+burger_links.forEach(function(link) {
+  link.addEventListener('click', function() {
+    const modal = document.querySelector('.burger__nav');
+    modal.classList.toggle('block');
+    const nav_items = document.querySelector('#nav');
+    nav_items.classList.toggle('open');
+    sticks.classList.toggle('change');
+  });
+});
+//==============================================================================
+const anchors = document.querySelectorAll('a[href*="#"]');
+//smooth transition to clicking on the menu
+anchors.forEach(function(anchor) {
+  anchor.addEventListener('click', function (e) {
+    anchors.forEach(function(anch) {
+      anch.classList.remove('redcolor');
+    });
+    e.preventDefault();
+    anchor.classList.add('redcolor');
+    const blockID = anchor.getAttribute('href');
+    var hiddenElement = document.querySelector(blockID);
+    hiddenElement.scrollIntoView({block: 'start', behavior: 'smooth'});
+  });
+});
+//==============================================================================
+//highlighting a menu item by block
+var scrollTop;
+window.addEventListener('scroll', function() {
+  scrollTop = window.scrollY;
+  anchors.forEach(function(anchor) {
+    const blockID = anchor.getAttribute('href').substr(1);
+    if(blockID!=''){
+      if(scrollTop >= document.querySelector('[id='+blockID+']').offsetTop) {
+        anchors.forEach(function(anch) {
+          anch.classList.remove('redcolor');
+        });
+        anchor.classList.add('redcolor');
+      }
+    }
+  });
+});
+//==============================================================================
 //slider
 var multiItemSlider = (function () {
   return function (selector, config) {
@@ -59,7 +75,7 @@ var multiItemSlider = (function () {
       _transform = 0, 
       _step = _itemWidth / _wrapperWidth * 100, 
       _items = [];
-		
+    
     _sliderItems.forEach(function (item, index) {
       _items.push({ item: item, position: index, transform: 0 });
     });
@@ -95,7 +111,7 @@ var multiItemSlider = (function () {
         _positionLeftItem++;
         if ((_positionLeftItem + _wrapperWidth / _itemWidth - 1) > position.getMax()) {
           nextItem = position.getItemMin();
-					ind=nextItem;
+          ind=nextItem;
           _items[nextItem].position = position.getMax() + 1;
           _items[nextItem].transform += _items.length * 100;
           _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';
@@ -108,14 +124,14 @@ var multiItemSlider = (function () {
           nextItem = position.getItemMax();
           _items[nextItem].position = position.getMin() - 1;
           _items[nextItem].transform -= _items.length * 100;
-          _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';	
+          _items[nextItem].item.style.transform = 'translateX(' + _items[nextItem].transform + '%)';  
         }
         _transform += _step;
       }
-			_mainElement.style.background=_items[nextItem].item.style.background;
-			document.getElementById("slider__line").style.background=_items[nextItem].item.style.background;
-			document.getElementById("slider__line").style.background="rgba(0,0,0,.05)";
-      _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';	
+      _mainElement.style.background=_items[nextItem].item.style.background;
+      document.getElementById("slider__line").style.background=_items[nextItem].item.style.background;
+      document.getElementById("slider__line").style.background="rgba(0,0,0,.05)";
+      _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';  
     }
         
     var _btnClick = function (e) {
@@ -143,82 +159,90 @@ var multiItemSlider = (function () {
   }
 }());
 var slider = multiItemSlider('.slider')
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //turn on/off phone
-const imgs = document.querySelectorAll('img[id="slider__phone"]')
-for (let img of imgs) {
+const imgs = document.querySelectorAll('img[id="slider__phone"]');
+imgs.forEach(function(img) {
   img.addEventListener('click', function () {
-  img.classList.toggle("view");
+    img.classList.toggle("view");
+  });
 });
-}
-
+//==============================================================================
 //portfolio images borders
-const imgs_portfolio = document.getElementsByClassName("portfolio__image");
-for (let img of imgs_portfolio) {
-	img.addEventListener('click', function () {
-		for (let im of imgs_portfolio) {
-		  im.style.boxShadow = 'none';
-		}
-		img.style.boxShadow = '0px 0px 0px 6px #F06C64';
-  });
-}
+const portfolio__items__container = document.querySelector('.portfolio__items__container');
+const imgs_portfolio = document.querySelectorAll('img[class="portfolio__image"]');
 
+portfolio__items__container.onclick = function(event) {
+  const img = event.target;
+  if (img.tagName !== 'IMG') {
+    return;
+  }
+  imgs_portfolio.forEach(function(im) {
+    im.classList.remove('redboxshadow');
+  });
+  img.classList.add('redboxshadow');
+}
+//==============================================================================
 //portfolio items mix
-const buttons_portfolio = document.getElementsByClassName("tag__item");
-for (let btn of buttons_portfolio) {
-	btn.addEventListener('click', function () {
-		for (let bt of buttons_portfolio) {
-		  bt.style.border = '1px solid rgb(102, 109, 137)';
-			bt.style.color = 'rgb(102, 109, 137)';
-		}
-		btn.style.border = '1px solid white';
-		btn.style.color = 'white';
+const button_portfolio = document.querySelector('.portfolio__tags__container');
+const buttons_portfolio = document.querySelectorAll('button[class="tag__item effect"]');
 
-		var portfolio__items = document.querySelector('.portfolio__items__container');
-    var portfolio__items__images = portfolio__items.querySelectorAll('.portfolio__item');
-		var mas=[3,9,1,6,8,4,11,10,2,5,7,0];
-		for (var i = 0; i < portfolio__items__images.length; i++) {
-      portfolio__items.appendChild(portfolio__items__images[mas[i]]);
-    }
+button_portfolio.onclick = function(event) {
+  const but = event.target;
+  if (but.tagName !== 'BUTTON') {
+    return;
+  }
+  buttons_portfolio.forEach(function(bt) {
+    bt.classList.remove("backlight");
   });
-}
+  but.classList.add("backlight");
 
+  const portfolio__items = document.querySelector('.portfolio__items__container');
+  const portfolio__items__images = portfolio__items.querySelectorAll('.portfolio__item');
+  const mas = [3,9,1,6,8,4,11,10,2,5,7,0];
+
+  portfolio__items__images.forEach(function(item, i, arr) {
+    portfolio__items.appendChild(arr[mas[i]]);
+  });
+};
+//==============================================================================
 //get a quote
-var btn = document.getElementById('submit');
+var btn = document.querySelector('#submit');
 btn.addEventListener('click', function (e) {
-	e.preventDefault();
-	var elems = window.document.getElementsByClassName("form__element");
-	var name=elems[0].value, email=elems[1].value;
-	var emailRegExp = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-	if(name=='' || email=='') {
-		alert('Fill in the required fields');
-	} else if (emailRegExp.test(email)) {
-		var subj = 'Subject: ', descr = 'Description: ';
-		if(elems[2].value=='') {
-			subj = 'No subject';
-		}
-		if(elems[3].value=='') {
-			descr = 'No description'; 
-		}
-		var modal = document.getElementById('myModal');
-		var button_close = document.getElementsByClassName("modal__close__btn")[0];
-		var subject = document.getElementById('subject');
-		var description = document.getElementById('description');
-		subject.textContent = subj+elems[2].value;
-		description.textContent = descr+elems[3].value;
-		modal.style.display = "block";
-		button_close.onclick = function() {
-			modal.style.display = "none";
-			document.getElementById("form").reset();
-		}
-		window.onclick = function(event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-				document.getElementById("form").reset();
-			}
-		}			
-	} else {
-		alert('Invalid email address');
-	}
+  e.preventDefault();
+  var elems = window.document.querySelectorAll('.form__element');
+  var name = elems[0].value, email = elems[1].value;
+  var emailRegExp = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+  if(name === '' || email === '') {
+    alert('Fill in the required fields');
+  } else if (emailRegExp.test(email)) {
+    var subj = 'Subject: ', descr = 'Description: ';
+    if(elems[2].value === '') {
+      subj = 'No subject';
+    }
+    if(elems[3].value === '') {
+      descr = 'No description';
+    }
+    var modal = document.querySelector('#myModal');
+    var button_close = document.querySelector('.modal__close__btn');
+    var subject = document.querySelector('#subject');
+    var description = document.querySelector('#description');
+    subject.textContent = subj + elems[2].value;
+    description.textContent = descr + elems[3].value;
+    modal.classList.add('block');
+    button_close.onclick = function() {
+      modal.classList.remove('block');
+      document.querySelector('#form').reset();
+    }
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.classList.remove('block');
+        document.querySelector('#form').reset();
+      }
+    }
+  } else {
+    alert('Invalid email address');
+  }
 });
 
